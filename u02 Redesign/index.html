@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redesigned Resto Culinair</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .fade-in {
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .slide-in {
+            animation: slideIn 0.5s ease-out;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(-20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans leading-normal tracking-normal">
+    <nav class="bg-blue-500 p-4 fixed w-full top-0 left-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="#" class="text-white text-2xl font-semibold" onclick="showPage('home')">Resto Culinair</a>
+            <ul class="flex space-x-4">
+                <li><a href="#" class="text-white hover:underline" onclick="showPage('home')">Home</a></li>
+                <li><a href="#" class="text-white hover:underline" onclick="showPage('members')">Members</a></li>
+                <li><a href="#" class="text-white hover:underline" onclick="showPage('news')">News</a></li>
+                <li><a href="#" class="text-white hover:underline" onclick="showPage('contact')">Contact</a></li>
+                <li><a href="#" class="text-white hover:underline" onclick="showPage('smulllbox')">Smulllbox</a></li>
+                <li><a href="#" class="text-white hover:underline" onclick="showPage('pricing')">Pricing</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="pt-16" id="content">
+        <!-- Dynamic content will be loaded here -->
+    </div>
+
+    <footer class="bg-blue-500 p-4 text-white text-center mt-8">
+        <p>&copy; 2024 Resto Culinair. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const pages = {
+            home: `
+                <section class="bg-gray-200 p-8 fade-in">
+                    <div class="container mx-auto text-center">
+                        <h1 class="text-4xl font-bold mb-4">Welcome to Resto Culinair</h1>
+                        <p class="text-lg mb-8">Experience the best catering services with a touch of excellence.</p>
+                        <img src="https://via.placeholder.com/800x400" alt="Catering" class="mx-auto rounded-lg shadow-lg">
+                    </div>
+                </section>
+            `,
+            members: `
+                <section class="p-8 slide-in">
+                    <div class="container mx-auto">
+                        <h2 class="text-3xl font-bold mb-4">Our Members</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            <div class="bg-white p-4 rounded-lg shadow-lg">
+                                <img src="https://via.placeholder.com/150" alt="Member 1" class="w-full h-32 object-cover rounded-lg mb-4">
+                                <h3 class="text-xl font-semibold">Member 1</h3>
+                                <p class="text-gray-600">Address: 123 Main St, City</p>
+                                <p class="text-gray-600">Contact: contact@member1.com</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg shadow-lg">
+                                <img src="https://via.placeholder.com/150" alt="Member 2" class="w-full h-32 object-cover rounded-lg mb-4">
+                                <h3 class="text-xl font-semibold">Member 2</h3>
+                                <p class="text-gray-600">Address: 456 Elm St, City</p>
+                                <p class="text-gray-600">Contact: contact@member2.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            `,
+            news: `
+                <section class="bg-gray-200 p-8 fade-in">
+                    <div class="container mx-auto">
+                        <h2 class="text-3xl font-bold mb-4">Latest News</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            <div class="bg-white p-4 rounded-lg shadow-lg">
+                                <img src="https://via.placeholder.com/400x200" alt="News 1" class="w-full h-32 object-cover rounded-lg mb-4">
+                                <h3 class="text-xl font-semibold mb-2">News Title 1</h3>
+                                <p class="text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg shadow-lg">
+                                <img src="https://via.placeholder.com/400x200" alt="News 2" class="w-full h-32 object-cover rounded-lg mb-4">
+                                <h3 class="text-xl font-semibold mb-2">News Title 2</h3>
+                                <p class="text-gray-600">Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            `,
+            contact: `
+                <section class="p-8 slide-in">
+                    <div class="container mx-auto">
+                        <h2 class="text-3xl font-bold mb-4">Contact Us</h2>
+                        <form class="bg-white p-6 rounded-lg shadow-lg">
+                            <label for="name" class="block text-gray-700 font-semibold mb-2">Name</label>
+                            <input type="text" id="name" class="w-full p-2 mb-4 border border-gray-300 rounded-lg" required>
+
+                            <label for="email" class="block text-gray-700 font-semibold mb-2">Email</label>
+                            <input type="email" id="email" class="w-full p-2 mb-4 border border-gray-300 rounded-lg" required>
+
+                            <label for="message" class="block text-gray-700 font-semibold mb-2">Message</label>
+                            <textarea id="message" class="w-full p-2 mb-4 border border-gray-300 rounded-lg" rows="4" required></textarea>
+
+                            <button type="submit" class="bg-blue-500 text-white p-2 rounded-lg hover:bg-blue-600">Send</button>
+                        </form>
+                    </div>
+                </section>
+            `,
+            smulllbox: `
+                <section class="bg-gray-200 p-8 fade-in">
+                    <div class="container mx-auto text-center">
+                        <h2 class="text-3xl font-bold mb-4">Smulllbox</h2>
+                        <p class="text-lg mb-8">Explore our creative new service! Stay tuned for more details.</p>
+                        <img src="https://via.placeholder.com/800x400" alt="Smulllbox" class="mx-auto rounded-lg shadow-lg">
+                    </div>
+                </section>
+            `,
+            pricing: `
+                <section class="p-8 slide-in">
+                    <div class="container mx-auto">
+                        <h2 class="text-3xl font-bold mb-4">Pricing</h2>
+                        <table class="min-w-full bg-white border border-gray-300 rounded-lg shadow-lg">
+                            <thead>
+                                <tr class="border-b">
+                                    <th class="p-4 text-left">Service</th>
+                                    <th class="p-4 text-left">Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b">
+                                    <td class="p-4">Service 1</td>
+                                    <td class="p-4">$100</td>
+                                </tr>
+                                <tr class="border-b">
+                                    <td class="p-4">Service 2</td>
+                                    <td class="p-4">$200</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            `
+        };
+
+        function showPage(page) {
+            document.getElementById('content').innerHTML = pages[page];
+        }
+
+        // Load home page by default
+        showPage('home');
+    </script>
+</body>
+</html>

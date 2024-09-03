@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hangman Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        #hangman-container {
+            margin: auto;
+            width: 80%;
+            max-width: 600px;
+        }
+
+        #word-container {
+            font-size: 2em;
+            margin: 20px 0;
+        }
+
+        #guess-buttons {
+            margin: 20px 0;
+        }
+
+        #guess-buttons button {
+            margin: 5px;
+            padding: 10px;
+            font-size: 1.2em;
+        }
+
+        #restart-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            display: none;
+        }
+
+        #hangman-image {
+            margin: 20px 0;
+            font-size: 1.5em;
+        }
+    </style>
+</head>
+<body>
+    <div id="hangman-container">
+        <h1>Hangman Game</h1>
+        <div id="word-container">_ _ _ _ _</div>
+        <div id="hangman-image">Incorrect guesses: 0</div>
+        <div id="guess-buttons"></div>
+        <button id="restart-button">Restart</button>
+    </div>
+
+    <script>
+        const words = ["javascript", "hangman", "programming", "developer"];
+        let selectedWord;
+        let guessedLetters;
+        let maxGuesses = 5;
+        let incorrectGuesses;
+        const wordContainer = document.getElementById("word-container");
+        const hangmanImage = document.getElementById("hangman-image");
+        const guessButtons = document.getElementById("guess-buttons");
+        const restartButton = document.getElementById("restart-button");
+
+        function startGame() {
+            selectedWord = words[Math.floor(Math.random() * words.length)];
+            guessedLetters = [];
+            incorrectGuesses = 0;
+            updateWordDisplay();
+            updateGuessButtons();
+            restartButton.style.display = 'none';
+            hangmanImage.innerHTML = `Incorrect guesses: ${incorrectGuesses}`;
+        }
+
+        function updateWordDisplay() {
+            wordContainer.innerHTML = selectedWord
+                .split('')
+                .map(letter => (guessedLetters.includes(letter) ? letter : '_'))
+                .join(' ');
+
+            if (!wordContainer.innerHTML.includes('_')) {
+                alert("You win!");
+                restartButton.style.display = 'block';
+            }
+        }
+
+        function updateGuessButtons() {
+            guessButtons.innerHTML = '';
+            for (let i = 65; i <= 90; i++) {
+                const letter = String.fromCharCode(i).toLowerCase();
+                const button = document.createElement('button');
+                button.textContent = letter;
+                button.addEventListener('click', () => guessLetter(letter));
+                guessButtons.appendChild(button);
+            }
+        }
+
+        function guessLetter(letter) {
+            if (selectedWord.includes(letter)) {
+                guessedLetters.push(letter);
+                updateWordDisplay();
+            } else {
+                incorrectGuesses++;
+                hangmanImage.innerHTML = `Incorrect guesses: ${incorrectGuesses}`;
+                if (incorrectGuesses >= maxGuesses) {
+                    alert("You lose!");
+                    restartButton.style.display = 'block';
+                }
+            }
+        }
+
+        restartButton.addEventListener('click', startGame);
+
+        window.onload = startGame;
+    </script>
+</body>
+</html>

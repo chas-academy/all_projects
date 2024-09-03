@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f4f8;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .header button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .header button:hover {
+            background-color: #0056b3;
+        }
+        .weather, .forecast {
+            margin: 20px 0;
+        }
+        .weather p, .forecast-item p {
+            margin: 10px 0;
+        }
+        .forecast-item {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 10px 0;
+            background: #f9f9f9;
+        }
+        .error {
+            color: red;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Weather App</h1>
+            <button id="unitToggle">Switch to Fahrenheit</button>
+        </header>
+        <div id="error" class="error"></div>
+        <div id="weather" class="weather"></div>
+        <div id="forecast" class="forecast"></div>
+    </div>
+
+    <script>
+        const apiKey = 'YOUR_API_KEY'; // Replace with your OpenWeatherMap API key
+        const unitToggle = document.getElementById('unitToggle');
+        let unit = 'metric'; // 'metric' for Celsius, 'imperial' for Fahrenheit
+
+        function toggleUnit() {
+            unit = unit === 'metric' ? 'imperial' : 'metric';
+            unitToggle.textContent = unit === 'metric' ? 'Switch to Fahrenheit' : 'Switch to Celsius';
+            fetchWeather();
+        }
+
+        function displayError(message) {
+            document.getElementById('error').textContent = message;
+        }
+
+        function displayWeather(data) {
+            const weatherElement = document.getElementById('weather');
+            const sunrise = new Date(data.sys.sunrise * 1000).toLocaleTimeString();
+            const sunset = new Date(data.sys.sunset * 1000).toLocaleTimeString();
+
+            weatherElement.innerHTML = `
+                <h2>Current Weather</h2>
+                <p>Temperature: ${data.main.temp}°${unit === 'metric' ? 'C' : 'F'}</p>
+                <p>Wind Speed: ${data.wind.speed} ${unit === 'metric' ? 'm/s' : 'mph'}</p>
+                <p>Humidity: ${data.main.humidity}%</p>
+                <p>Sunrise: ${sunrise}</p>
+                <p>Sunset: ${sunset}</p>
+            `;
+        }
+
+        function displayForecast(data) {
+            const forecastElement = document.getElementById('forecast');
+            forecastElement.innerHTML = '<h2>5-Day Forecast</h2>';
+            data.list.slice(0, 5).forEach(item => {
+                const date = new Date(item.dt * 1000).toLocaleDateString();
+                forecastElement.innerHTML += `
+                    <div class="forecast-item">
+                        <p>Date: ${date}</p>
+                        <p>Temperature: ${item.main.temp}°${unit === 'metric' ? 'C' : 'F'}</p>
+                        <p>Weather: ${item.weather[0].description}</p>
+                        <p>Wind Speed: ${item.wind.speed} ${unit === 'metric' ? 'm/s' : 'mph'}</p>
+                        <p>Humidity: ${item.main.humidity}%</p>
+                    </div>
+                `;
+            });
+        }
+
+        function fetchWeather() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(position => {
+                    const { latitude, longitude } = position.coords;
+                    const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=${unit}&appid=${apiKey}`;
+                    const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&units=${unit}&appid=${apiKey}`;
+
+                    fetch(weatherUrl)
+                        .then(response => response.json())
+                        .then(data => displayWeather(data))
+                        .catch(error => displayError('Failed to fetch weather data'));
+
+                    fetch(forecastUrl)
+                        .then(response => response.json())
+                        .then(data => displayForecast(data))
+                        .catch(error => displayError('Failed to fetch forecast data'));
+                }, () => {
+                    displayError('Error getting location');
+                });
+            } else {
+                displayError('Geolocation is not supported by this browser.');
+            }
+        }
+
+        unitToggle.addEventListener('click', toggleUnit);
+
+        fetchWeather();
+    </script>
+</body>
+</html>

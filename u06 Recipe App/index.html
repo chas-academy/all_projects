@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe App</title>
+    <style>
+        body {
+            background-color: #f3f4f6;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+
+        header {
+            margin-bottom: 1.5rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-align: center;
+            color: #3b82f6;
+        }
+
+        section {
+            margin-bottom: 1.5rem;
+        }
+
+        .input-group, .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .input-group {
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        input[type="text"], select, button {
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            border: 1px solid #d1d5db;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        input[type="text"]:focus, select:focus, button:hover {
+            outline: none;
+            border-color: #3b82f6;
+        }
+
+        button {
+            background-color: #3b82f6;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #2563eb;
+        }
+
+        .filter-group {
+            flex-direction: row;
+            gap: 1rem;
+        }
+
+        .recipe-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .recipe-item {
+            background-color: white;
+            border-radius: 0.5rem;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 1rem;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .recipe-item:hover {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            transform: scale(1.05);
+        }
+
+        .recipe-item h2 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: #1f2937;
+        }
+
+        .recipe-item p {
+            color: #6b7280;
+        }
+
+        .recipe-item .buy-btn {
+            background-color: #34d399;
+            color: white;
+            padding: 0.5rem;
+            border-radius: 0.25rem;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 0.5rem;
+        }
+
+        .recipe-item .buy-btn:hover {
+            background-color: #10b981;
+        }
+
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .modal.show {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .modal-content {
+            background-color: white;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 600px;
+            transform: scale(0);
+            transition: transform 0.3s ease;
+        }
+
+        .modal.show .modal-content {
+            transform: scale(1);
+        }
+
+        .modal-content h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #1f2937;
+        }
+
+        .modal-content p {
+            margin-bottom: 1rem;
+            color: #4b5563;
+        }
+
+        .close-btn {
+            background-color: #ef4444;
+            color: white;
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .close-btn:hover {
+            background-color: #dc2626;
+        }
+
+        .shopping-list {
+            margin-top: 1.5rem;
+        }
+
+        .shopping-list h2 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #1f2937;
+        }
+
+        .shopping-list ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .shopping-list li {
+            background-color: white;
+            border: 1px solid #e5e7eb;
+            padding: 0.5rem;
+            border-radius: 0.25rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .shopping-list button {
+            background-color: #ef4444;
+            color: white;
+            border: none;
+            padding: 0.25rem;
+            border-radius: 0.25rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .shopping-list button:hover {
+            background-color: #dc2626;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- Header -->
+        <header>
+            <h1>Recipe App</h1>
+        </header>
+
+        <!-- Search and Filter Section -->
+        <section>
+            <div class="input-group">
+                <input type="text" id="search" placeholder="Search for recipes...">
+                <button id="loginBtn">Login</button>
+            </div>
+            <div class="filter-group">
+                <select id="mealType">
+                    <option value="">All Meal Types</option>
+                    <option value="starter">Starter</option>
+                    <option value="main">Main Course</option>
+                    <option value="dessert">Dessert</option>
+                </select>
+                <select id="allergens">
+                    <option value="">All Allergens</option>
+                    <option value="gluten">Gluten</option>
+                    <option value="nuts">Nuts</option>
+                    <option value="dairy">Dairy</option>
+                </select>
+                <button id="fetchRecipes">Fetch Recipes</button>
+            </div>
+        </section>
+
+        <!-- Recipe List -->
+        <section id="recipes" class="recipe-list">
+            <!-- Recipes will be loaded here -->
+        </section>
+
+        <!-- Shopping List -->
+        <section class="shopping-list">
+            <h2>Shopping List</h2>
+            <ul id="shoppingList">
+                <!-- Shopping list items will be appended here -->
+            </ul>
+        </section>
+
+        <!-- Recipe Details Modal -->
+        <div id="recipeModal" class="modal">
+            <div class="modal-content">
+                <h2 id="recipeTitle"></h2>
+                <p id="recipeDetails"></p>
+                <button id="closeModal" class="close-btn">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            const shoppingList = [];
+
+            // Generate and display 40 random recipes
+            generateRandomRecipes(40);
+
+            $('#fetchRecipes').click(function() {
+                const query = $('#search').val();
+                const mealType = $('#mealType').val();
+                const allergens = $('#allergens').val();
+
+                // Optionally implement actual fetch logic here
+                generateRandomRecipes(40);
+            });
+
+            $('#recipes').on('click', '.recipe-item', function() {
+                const recipeId = $(this).data('id');
+                showRecipeDetails(recipeId);
+            });
+
+            $('#recipes').on('click', '.buy-btn', function(event) {
+                event.stopPropagation();
+                const itemName = $(this).siblings('h2').text();
+                addToShoppingList(itemName);
+            });
+
+            $('#closeModal').click(function() {
+                $('#recipeModal').removeClass('show');
+            });
+
+            function generateRandomRecipes(count) {
+                $('#recipes').empty();
+                for (let i = 0; i < count; i++) {
+                    const randomName = `Recipe ${Math.floor(Math.random() * 1000)}`;
+                    const randomPrice = (Math.random() * 20).toFixed(2);
+                    const recipeHtml = `
+                        <div class="recipe-item" data-id="${i}">
+                            <h2>${randomName}</h2>
+                            <p>Price: $${randomPrice}</p>
+                            <button class="buy-btn">Add to Shopping List</button>
+                        </div>
+                    `;
+                    $('#recipes').append(recipeHtml);
+                }
+            }
+
+            function showRecipeDetails(recipeId) {
+                $('#recipeTitle').text('Recipe Title');
+                $('#recipeDetails').text('Recipe details will be shown here.');
+                $('#recipeModal').addClass('show');
+            }
+
+            function addToShoppingList(itemName) {
+                if (!shoppingList.includes(itemName)) {
+                    shoppingList.push(itemName);
+                    $('#shoppingList').append(`
+                        <li>${itemName} <button class="remove-btn">Remove</button></li>
+                    `);
+                }
+            }
+
+            $('#shoppingList').on('click', '.remove-btn', function() {
+                const itemName = $(this).parent().text().replace(' Remove', '');
+                const index = shoppingList.indexOf(itemName);
+                if (index > -1) {
+                    shoppingList.splice(index, 1);
+                    $(this).parent().remove();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
