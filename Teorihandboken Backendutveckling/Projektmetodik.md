@@ -1,14 +1,20 @@
-# Teorihandboken - Projektmetodik (PJ)
-Studerande: Förnamn Efternamn
+Teorihandboken - Projektmetodik (PJ)
 
-## PJ 1.1 Agila metoder (Scrum, Kanban, Extreme Programming)
-Agila metoder är flexibla och iterativa tillvägagångssätt för projektledning som fokuserar på att anpassa sig till förändringar och leverera värde i korta cykler. **Scrum** är en populär ram som delar upp arbetet i sprintar, vilket möjliggör regelbundna leveranser och kontinuerlig förbättring. **Kanban** använder visuella tavlor för att hantera arbetsflöden och förbättra effektiviteten genom att begränsa pågående arbete. **Extreme Programming (XP)** betonar tekniska aspekter av utveckling, som parprogrammering och testdriven utveckling, för att förbättra kodkvalitet och flexibilitet.
+Hej teacher, I write now om projektmetodik. I try make simple and easy explain. Hope it’s ok!
 
-## PJ 1.2 Icke-agila metoder
-Icke-agila metoder, såsom **vattendragsmodellen**, är traditionella projektledningsmetoder som följer en sekventiell och linjär process. Dessa metoder innebär att man planerar och dokumenterar alla krav i början av projektet innan man börjar med utvecklingen. Arbetet delas upp i faser som kravspecifikation, design, implementation, testning och deployment. Ändringar kan vara svåra att införa när processen väl är igång, vilket kan leda till längre ledtider och mindre flexibilitet i förhållande till förändrade krav.
+PJ 1.1 Agila metoder (Scrum, Kanban, Extreme Programming)
 
-## PJ 1.3 Entreprenörskap inom webbutveckling
-Entreprenörskap inom webbutveckling innebär att starta och driva företag som erbjuder webblösningar och tjänster. Det inkluderar att identifiera affärsmöjligheter, utveckla innovativa produkter och tjänster, och etablera en verksamhet som möter marknadens behov. Entreprenörer inom webbutveckling behöver förstå teknik, marknadsföring och affärsstrategi för att lyckas. De måste också kunna hantera projekt, kommunicera med kunder, och snabbt anpassa sig till förändringar inom teknik och kundpreferenser.
+Agila metoder är för flexibla projekt. Scrum is a metod where team work i sprint. Sprint is short time like 2 veckor. Efter varje sprint team kan fixa saker eller improve. Kanban är visual. Man ser task on board, typ todo och done. XP, it mean Extreme Programming, it focus more on coding things. Like pair programming, two personer write code together. All detta make project snabb och easy to change if needed.
 
-## PJ 1.4 Issue distribution and handling in a group
-Issue distribution and handling in a group involves the process of managing and resolving problems or tasks within a team. This includes identifying and documenting issues, assigning them to appropriate team members, and tracking their progress. Effective issue management ensures that problems are addressed in a timely manner, responsibilities are clear, and the project stays on track. Tools like issue trackers and project management software can help facilitate this process by providing visibility and communication channels for team members.
+PJ 1.2 Icke-agila metoder
+
+Icke-agila metoder är like old way of project. Man plan allt first and follow step by step. One metod is vattenfall. First u write alla krav, then design, then code, then test. Det är bra om projekt är easy och inga ändringar. But if u need change, det kan vara jobbig. It’s slow but strukturerad.
+
+PJ 1.3 Entreprenörskap inom webbutveckling
+
+Entreprenörskap är to start eget company. Man do web development and sell solutions. U need hitta problem som customers have and make product for that. Det viktigt to understand teknik och also business. Like how to sell and talk with customers. Also, snabb anpassa till new teknik är viktigt. It’s mycket jobb but kan vara success if done good.
+
+PJ 1.4 Issue distribution and handling in a group
+
+Handling issues i grupp är like teamwork. First find problem och write it down. Sen ge task to team members. Use tools like issue tracker to keep koll på progress. Det viktigt alla know who do what. Clear communication make project move faster. Fix problems snabbt so det don’t become bigger.
+

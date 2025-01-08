@@ -1,41 +1,55 @@
-# Teorihandboken - Backendutveckling (BE)
-Studerande: Förnamn Efternamn
+Teorihandboken - Backendutveckling (BE)
 
-## BE 1.1 PHP
-PHP är ett populärt serversidespråk som används för att bygga dynamiska webbplatser och applikationer. Det körs på servern och kan generera HTML som skickas till webbläsaren. PHP är känt för sin enkelhet och förmåga att integrera med databaser som MySQL. Det är också mycket användbart för att hantera formulär, sessions och autentisering.
+Hej teacher, here I try write for the teorihandboken for backend. I try my best, maybe not perfect, but hope u understand. Sometimes I mix English and svenska because I no sure all words.
 
-## BE 1.2 OOP i PHP
-Objektorienterad programmering (OOP) i PHP innebär att använda klasser och objekt för att strukturera kod på ett modulärt sätt. OOP tillåter dig att skapa återanvändbara och skalbara komponenter genom att kapsla in data och funktionalitet i objekt. Grundläggande OOP-koncept i PHP inkluderar klasser, arv, inkapsling och polymorfism.
+BE 1.1 PHP
 
-## BE 1.3 Säkerhet i PHP
-Säkerhet i PHP handlar om att skydda applikationer från vanliga sårbarheter som SQL-injektioner, XSS (Cross-Site Scripting) och CSRF (Cross-Site Request Forgery). Vanliga säkerhetsåtgärder inkluderar att använda förberedda SQL-frågor, validera och sanera användarinmatning, och implementera korrekta autentiseringstekniker.
+PHP det is a språk for make website work. It do things on server and send result to browser. Like if u have form and want save data, PHP kan do that. PHP easy to learn, man använder det ofta med MySQL. Det är bra för login systems och formulärer också.
 
-## BE 1.4 MVC
-MVC (Model-View-Controller) är ett arkitekturmönster som delar upp applikationen i tre huvudkomponenter: Model (data och affärslogik), View (användargränssnitt) och Controller (hanterar användarens inmatning och interaktion mellan Model och View). Detta mönster hjälper till att organisera koden och förbättra underhållbarheten genom att separera olika ansvarsområden.
+BE 1.2 OOP i PHP
 
-## BE 1.5 Wordpress
-WordPress är ett populärt CMS (Content Management System) som gör det enkelt att bygga och hantera webbplatser. Det erbjuder en användarvänlig administrationspanel och ett stort bibliotek av teman och plugins. WordPress är baserat på PHP och MySQL och används för att skapa allt från bloggar till komplexa webbplatser och e-handelslösningar.
+OOP (Objekt-orienterad programming) är som to make things clean. U use klasser and objekt. Like u make en blueprint för car and sen u make real cars from it. Det hjälper make program modular och återanvändbara. Inheritance means en sak kan take from other thing, typ som barn och förälder relation.
 
-## BE 1.6 Heirarkiska databaser
-Hierarkiska databaser organiserar data i en trädstruktur med noder som representerar dataobjekt och deras relationer. Data lagras i en hierarki med överordnade och underordnade poster. Denna typ av databas är mindre flexibel än relationsdatabaser men kan vara användbar för att hantera data med en naturlig hierarkisk struktur, som filsystem eller organisationsstrukturer.
+BE 1.3 Säkerhet i PHP
 
-## BE 1.7 Relationsdatabaser, SQL och ER-modellering
-Relationsdatabaser lagrar data i tabeller som kan länkas genom relationer. SQL (Structured Query Language) används för att fråga och manipulera data i relationsdatabaser. ER-modellering (Entity-Relationship Modelling) är en metod för att visualisera och designa databasstrukturer genom att definiera entiteter, attribut och relationer mellan dem.
+Säkerhet är viktigt, annars hackers kommer och tar din data. Använd alltid prepared statements for SQL, annars SQL injection. XSS är problem om u show user input without check it. Always sanitize och validate data. Annars blir kaos.
 
-## BE 1.8 OAuth i backend
-OAuth är en standard för auktorisering som tillåter applikationer att få åtkomst till resurser på en annan tjänst utan att behöva dela användarens lösenord. Det används för att autentisera och auktorisera användare på ett säkert sätt, ofta i samband med social inloggning och API-åtkomst. OAuth 2.0 är den senaste versionen och erbjuder flera flöden beroende på användningsfall.
+BE 1.4 MVC
 
-## BE 1.9 HTTP-protokollet
-HTTP (Hypertext Transfer Protocol) är det protokoll som används för att överföra data mellan klienter och servrar på webben. Det definierar hur meddelanden skickas och tas emot och hur förfrågningar och svar formateras. HTTP använder olika metoder som GET, POST, PUT och DELETE för att utföra olika typer av operationer.
+MVC is Model View Controller. It divide app in 3 part. Model is data, View is what user see, Controller is logic. Det är bra system för att hålla koden i ordning. Om det inte fanns skulle allt bli rörigt.
 
-## BE 1.10 cURL
-cURL är ett verktyg och ett bibliotek för att överföra data med URL-syntax. Det används för att göra HTTP-förfrågningar från kommandoraden eller från programvara. cURL kan användas för att kommunicera med olika API:er och webbservrar, och stödjer ett brett utbud av protokoll inklusive HTTP, HTTPS, FTP och mer.
+BE 1.5 Wordpress
 
-## BE 1.11 REST
-REST (Representational State Transfer) är en arkitekturstil för att bygga webb-API:er som använder HTTP-metoder för att utföra CRUD-operationer (Create, Read, Update, Delete). RESTful API:er är baserade på resurser och använder URL:er för att identifiera dessa resurser. De är enkla, skalbara och lätta att använda med HTTP-förfrågningar.
+WordPress är en platform för att bygga hemsidor. Det har plugins och teman så man kan ändra design och funktioner. Det är byggt med PHP och använder MySQL för att spara data. Det är enkelt och bra för bloggar, but u kan även skapa webshops.
 
-## BE 1.12 XML och andra dataformat
-XML (Extensible Markup Language) är ett dataformat som används för att strukturera och transportera data. Det är självbeskrivande och kan användas för att representera komplexa dataobjekt. Andra vanliga dataformat inkluderar JSON (JavaScript Object Notation), som är lättare att läsa och skriva för människor och maskiner, samt YAML (YAML Ain't Markup Language) som är ofta använt för konfigurationsfiler.
+BE 1.6 Heirarkiska databaser
 
-## BE 1.13 Webbservrar
-Webbservrar är programvara som hanterar HTTP-förfrågningar från klienter och skickar tillbaka HTTP-svar. De är ansvariga för att servera webbplatser och applikationer på internet. Vanliga webbservrar inkluderar Apache, Nginx och Microsoft IIS. Webbservrar kan också hantera SSL/TLS-kryptering, virtuella värdar och lastbalansering.
+Denna databas is like a tree. Data här har parent and child, typ som family tree. Den passar när man har struktur som är hierarkisk, but it’s not so flexibel as relation database.
+
+BE 1.7 Relationsdatabaser, SQL och ER-modellering
+
+Relationsdatabas is popular. Data is tables and connected with keys. SQL is for talk with database, like SELECT, INSERT. ER-modellering är att planera hur data ska hänga ihop. It is helpful for making big database.
+
+BE 1.8 OAuth i backend
+
+OAuth är like login system but secure. U can logga in via Google eller Facebook utan ge lösenord till site. Det används för API access, so other apps kan hämta data utan att riskera security.
+
+BE 1.9 HTTP-protokollet
+
+HTTP är språk som webben pratar. Browser skickar request, server svarar. Det finns metoder som GET (hämta) och POST (skicka data). Without HTTP inget funkar på webben. Simple but viktigt.
+
+BE 1.10 cURL
+
+cURL is en tool för att skicka request till andra server. Om u want hämta data from API, cURL är perfekt. Det är snabbt och kan hantera olika protocols like HTTP, FTP.
+
+BE 1.11 REST
+
+REST is a system for API. U use HTTP methods like GET, POST to talk to server. It make things enkelt, resource are URLs. REST APIs are everywhere now, easy to use.
+
+BE 1.12 XML och andra dataformat
+
+XML är för att lagra data in structured way, but JSON är enklare att läsa och skriva. YAML finns också och är bra for config files. XML är old but still används sometimes.
+
+BE 1.13 Webbservrar
+
+Webbserver är like Apache eller Nginx, it handle requests from client. Det sänder pages to browser. Secure ones kan använda SSL/TLS för kryptering. Det is en viktig del for alla webbsidor.

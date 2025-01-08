@@ -1,35 +1,47 @@
-# Teorihandboken - Programmeringsmetodik (PG)
-Studerande: Förnamn Efternamn
+Teorihandboken - Programmeringsmetodik (PG)
 
-## PG 1.1 Versionshantering (Git)
-Versionshantering med Git är en metod för att spåra och hantera ändringar i koden över tid. Git är ett distribuerat versionshanteringssystem som gör det möjligt för utvecklare att samarbeta, hålla reda på ändringar, och återställa tidigare versioner av koden. Git tillåter också skapande av grenar för att arbeta på olika funktioner eller fixar utan att påverka huvudkoden, samt sammanslagning av dessa grenar när arbetet är klart.
+Hej teacher, jag ska pröva skriva om programmeringsmetodik. Det kan bli lite mix språk och jag försöker förklara enkelt så du ser jag förstår lite.
 
-## PG 1.2 Benchmarking
-Benchmarking är en process för att mäta och utvärdera prestandan hos en programvara eller systemkomponent. Genom att köra specifika tester och mäta resultat kan utvecklare identifiera prestandaflaskhalsar och optimera kod för bättre effektivitet. Benchmarking hjälper till att förstå hur väl en applikation fungerar under olika förhållanden och att jämföra prestanda mellan olika lösningar.
+PG 1.1 Versionshantering (Git)
 
-## PG 1.3 Testdriven utveckling
-Testdriven utveckling (TDD) är en metod för att skriva tester innan koden som ska testas. Utvecklaren skriver först en test som definierar en specifik funktionalitet eller beteende, och sedan skriver koden som behövs för att få testet att passera. Detta tillvägagångssätt säkerställer att koden är vältestad och fungerar som avsett, och hjälper också till att hålla koden enkel och modulär.
+Git är tool for saving kod och se changes. Man kan göra branches, det är like working on diff parts without touching main code. Sen merge man branches back. Det är bra for teamwork och if something goes wrong kan man go back till old version.
 
-## PG 1.4 Deploy och staging
-Deploy och staging refererar till processerna för att distribuera och förbereda en applikation för produktion. Staging-miljön är en kopia av produktionsmiljön där nya funktioner och ändringar testas innan de går live. Deploy innebär att flytta koden från utvecklings- eller stagingmiljöer till den slutliga produktionsmiljön. En väl genomförd deploy-process minimerar risken för driftstörningar och säkerställer att nya funktioner fungerar korrekt.
+PG 1.2 Benchmarking
 
-## PG 1.5 Debugging
-Debugging är processen att identifiera och åtgärda fel eller buggar i koden. Det innebär att använda verktyg och tekniker för att undersöka kodens beteende, analysera felmeddelanden, och felsöka koden för att förstå varför den inte fungerar som förväntat. Debugging kan göras med hjälp av inbyggda debuggerverktyg i utvecklingsmiljön, loggning och testning.
+Benchmarking är test to see hur snabbt eller bra program gör work. Om det är slow, then man kan se var problem finns och fixa. Det kan vara för att veta vilken kod som funkar bäst eller hur mycket app klarar innan den blir långsam.
 
-## PG 1.6 Dokumentation
-Dokumentation är skapandet av skriftliga eller visuella resurser som beskriver hur en applikation eller kod fungerar. Det kan omfatta kodkommentarer, användarmanualer, API-dokumentation och systembeskrivningar. God dokumentation är viktig för att underlätta förståelsen av koden för andra utvecklare, användare och framtida underhåll.
+PG 1.3 Testdriven utveckling
 
-## PG 1.7 Struktur av kod i projekt
-Struktur av kod i projekt handlar om hur koden organiseras och delas upp i moduler, filer och kataloger. En bra kodstruktur underlättar underhåll, testning och vidareutveckling av applikationen. Det kan inkludera användning av designmönster, kodkonventioner och en konsekvent fil- och katalogstruktur för att göra koden mer läsbar och hanterbar.
+TDD is writing test first, innan u write kod. Test check if funktion work som it should. If test fail, kod is wrong. It helps make kod clean och fungerar som den ska. Man skriver test -> sen kod -> sen kolla if test pass.
 
-## PG 1.8 Automatisering av arbetsflöde
-Automatisering av arbetsflöde innebär att använda verktyg och skript för att automatisera upprepade uppgifter inom utvecklingsprocessen. Detta kan omfatta automatiserad testning, byggprocesser, deployment och andra repetitiva uppgifter. Automatisering sparar tid, minskar risken för mänskliga fel och förbättrar effektiviteten i utvecklingscykeln.
+PG 1.4 Deploy och staging
 
-## PG 1.9 Virtualisering av utvecklingsmiljö
-Virtualisering av utvecklingsmiljö innebär att skapa virtuella miljöer för att köra och testa applikationer. Genom att använda verktyg som Docker eller virtuella maskiner kan utvecklare skapa isolerade miljöer som efterliknar produktionsmiljön. Detta gör det möjligt att testa applikationen under kontrollerade förhållanden och säkerställa att den fungerar korrekt oavsett den underliggande hårdvaran.
+Deploy betyder man flyttar kod to server som alla users kan see. Staging är copy av live server för test changes innan go live. Man vill testa allting in staging så det funkar bra live. Om det fail live är det problem.
 
-## PG 1.10 Bundeling-verktyg
-Bundeling-verktyg är verktyg som används för att kombinera och optimera filer, såsom JavaScript, CSS och bilder, till en enda eller färre filer för att förbättra laddningstider och prestanda på webbsidor. Verktyg som Webpack, Rollup och Parcel används för att hantera modulberoenden, minimera och packa filer för effektiv distribution.
+PG 1.5 Debugging
 
-## PG 1.11 Terminalinterface
-Terminalinterface är ett kommandoradsgränssnitt som används för att interagera med operativsystemet eller applikationer. Genom att skriva kommandon i terminalen kan utvecklare utföra uppgifter som att navigera i filsystemet, köra program och skript, och hantera processer. Terminalgränssnittet erbjuder ett kraftfullt sätt att automatisera arbetsflöden och hantera systemkonfigurationer.
+Debugging är att fixa buggar. Man ser på errors, förstå vad som är wrong och ändra kod. Det finns tools som debugger och logs. Logs show what program do step by step så man kan se var det fail.
+
+PG 1.6 Dokumentation
+
+Dokumentation är like manual for kod. Man skriver hur kod fungerar eller hur att use det. Det är bra for andra developers or future me. Without dokumentation blir det svårt förstå vad kod gör.
+
+PG 1.7 Struktur av kod i projekt
+
+Struktur means hur kod är organized. Man delar upp i files och folders. Det är easier to read and update kod om det har clear struktur. Om kod är messy, it är hard att work with.
+
+PG 1.8 Automatisering av arbetsflöde
+
+Automation sparar tid. Man använder tools för att göra repetitiv tasks, like testing or building kod. Med automation kan man undvika misstag och jobba snabbare.
+
+PG 1.9 Virtualisering av utvecklingsmiljö
+
+Virtualisering är att create fake miljö som är like production. Tools like Docker används for detta. Man kan testa app in same condition as real server. It is good för to avoid surprises when go live.
+
+PG 1.10 Bundeling-verktyg
+
+Bundeling är att pack files together to make faster loading. Tools som Webpack make small files from many. Det är bra för optimize web app och se till att allt laddar snabbt.
+
+PG 1.11 Terminalinterface
+
+Terminal är command line tool. Man skriver commands för att göra saker i system, like navigate, run programs eller fix issues. It är old style but powerful for developers.
