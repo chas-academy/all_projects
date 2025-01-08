@@ -1,41 +1,55 @@
 # Teorihandboken - Backendutveckling (BE)
 Studerande: Elias Luzwehimana
 
-## BE 1.1 PHP
-PHP is a server-side scripting language that's used to build websites and web applications. It runs on the server and generates HTML that’s sent to the client. PHP is popular because it's easy to use and integrates well with databases, like MySQL, to handle data.
+BE 1.1 PHP
 
-## BE 1.2 OOP i PHP
-OOP stands for Object-Oriented Programming. In PHP, OOP helps you organize code into classes and objects. This way, you can create reusable pieces of code and manage complex applications more easily. For example, you can have a `User` class to manage user-related data and actions.
+PHP är en språk som funkar på server sidan. Man kan bygga websidor och applikationer med den. PHP gör HTML som skickas till klienten. Det är populärt för det är enkelt och works with database like MySQL to save data.
 
-## BE 1.3 Säkerhet i PHP
-Security in PHP involves protecting your web application from threats like SQL injection, cross-site scripting (XSS), and cross-site request forgery (CSRF). This includes practices like validating user input, using prepared statements for database queries, and properly escaping data before displaying it.
+BE 1.2 OOP i PHP
 
-## BE 1.4 MVC
-MVC stands for Model-View-Controller. It’s a design pattern used to separate the data (Model), the user interface (View), and the application logic (Controller). This helps in organizing code and making it easier to manage and scale. For instance, in an MVC framework, the Model handles data, the View presents it, and the Controller processes user input.
+OOP means Object-Oriented Programming. I PHP u can use classes och objects för att organisera kod. Like u can skapa en User class för hantera user data. OOP make kod clean och reusable.
 
-## BE 1.5 Wordpress
-WordPress is a popular content management system (CMS) built with PHP. It allows you to create and manage websites easily. You can use themes and plugins to customize the look and functionality of your site without needing to code everything from scratch.
+BE 1.3 Säkerhet i PHP
 
-## BE 1.6 Heirarkiska databaser
-Hierarchical databases store data in a tree-like structure, with parent and child records. This means each parent record can have multiple child records, but each child record has only one parent. An example of a hierarchical database is an old-school IBM Information Management System (IMS).
+Säkerhet is viktigt, annars kan hackers attackera. Validate alltid user input och use prepared statements for SQL to stop SQL injection. Proper escaping stop XSS problem. Med bra säkerhet kan din sida vara trygg.
 
-## BE 1.7 Relationsdatabaser, SQL och ER-modellering
-Relational databases use tables to store data, and SQL (Structured Query Language) is used to manage and query that data. ER (Entity-Relationship) modeling is a way to design your database by defining the entities (like tables) and the relationships between them. This helps in structuring data efficiently.
+BE 1.4 MVC
 
-## BE 1.8 OAuth i backend
-OAuth is a protocol for authorization. It allows users to grant third-party applications access to their resources without sharing their passwords. In the backend, you implement OAuth to handle secure access to APIs or user data. For example, OAuth is used when you log into a website using your Google or Facebook account.
+MVC är Model-View-Controller. Det är en pattern som delar upp data (Model), user interface (View), och logic (Controller). Den gör kod enklare att förstå och manage. Like, View visar bara data som Model och Controller skickar.
 
-## BE 1.9 HTTP-protokollet
-The HTTP (HyperText Transfer Protocol) protocol is used for communication between a client (like a web browser) and a server. It defines how requests and responses are formatted. For example, when you enter a URL in your browser, an HTTP request is sent to the server, and the server responds with the requested web page.
+BE 1.5 WordPress
 
-## BE 1.10 cURL
-cURL is a tool used for making network requests from the command line or from within code. It supports various protocols like HTTP, FTP, and more. In PHP, you can use cURL to fetch data from APIs or send data to a server.
+WordPress är en CMS (Content Management System). Man bygger webbsidor snabbt med teman och plugins. Den är byggd med PHP och använder MySQL för data. U don’t need skriva mycket kod för att create page.
 
-## BE 1.11 REST
-REST (Representational State Transfer) is an architectural style for designing networked applications. It uses standard HTTP methods like GET, POST, PUT, and DELETE to interact with resources. RESTful APIs are commonly used to allow different applications to communicate over the web.
+BE 1.6 Heirarkiska databaser
 
-## BE 1.12 XML och andra dataformat
-XML (eXtensible Markup Language) is a format for structuring data in a way that’s both human-readable and machine-readable. Other data formats include JSON (JavaScript Object Notation), which is more lightweight and often used in web APIs. Understanding these formats helps in exchanging data between systems.
+Heirarkiska databaser lagrar data som trädstruktur. Like, parent node och child node. Parent can have many children, but child bara en parent. This är good för simple hierarchical data, men not so flexible som relationsdatabaser.
 
-## BE 1.13 Webbservrar
-Web servers are software that handles HTTP requests and serves web pages to clients. They manage the communication between the client and the server and can handle tasks like serving static files or running server-side scripts. Examples of web servers include Apache and Nginx.
+BE 1.7 Relationsdatabaser, SQL och ER-modellering
+
+Relationsdatabaser är tables with data. SQL språk is used för att fråga och change data. ER-modellering helps design tables och relations mellan dem. It make sure data is well-structured.
+
+BE 1.8 OAuth i backend
+
+OAuth is för secure access. Like, u log in to site with Google but don’t give password. It let other apps access din data utan att share password. In backend, OAuth är använd for secure API access.
+
+BE 1.9 HTTP-protokollet
+
+HTTP är språket för webben. Client (like browser) skickar request, server svarar. It use methods like GET och POST for olika tasks. HTTP make internet funka.
+
+BE 1.10 cURL
+
+cURL is en tool to make request. In PHP u can use it to hämta data from andra servers or send data. It supports many protocols like HTTP och FTP. cURL är viktigt för API work.
+
+BE 1.11 REST
+
+REST is architecture för API. It use HTTP methods like GET, POST, PUT, DELETE för att talk with resources. RESTful APIs är simple och easy to use for web services.
+
+BE 1.12 XML och andra dataformat
+
+XML är a dataformat för structured data. JSON är similar men simpler and lighter. Both är använd for data mellan systems. JSON is more common now in APIs.
+
+BE 1.13 Webbservrar
+
+Webbserver is software like Apache eller Nginx. It serves pages to clients och manages requests. It run PHP scripts och handles HTTP traffic. It is backbone för alla webbsidor.
+

@@ -1,35 +1,57 @@
-# Teorihandboken - Programmeringsmetodik (PG)
+Teorihandboken - Programmeringsmetodik (PG)
 Studerande: Elias Luzwehimana
 
-## PG 1.1 Versionshantering (Git)
-Versionshantering, eller Git, är ett system för att hålla koll på ändringar i koden. Det låter oss spara olika versioner av vårt arbete och återgå till tidigare versioner om något går fel. Git gör det också möjligt för flera personer att arbeta på samma projekt samtidigt utan att skriva över varandras ändringar.
+JS 1.1 JavaScript / ECMAScript
 
-## PG 1.2 Benchmarking
-Benchmarking handlar om att mäta och jämföra prestandan hos olika program eller system. Genom att köra tester kan vi se hur snabbt och effektivt vår kod körs och identifiera områden som kan förbättras. Detta hjälper oss att optimera vår kod för bättre prestanda.
+JavaScript är a programming språk for make web pages interactive. It is standard for web och works in alla modern browsers. ECMAScript är the specification JavaScript follows. ES6 introduce features like arrow functions och classes. Det make coding easier.
 
-## PG 1.3 Testdriven utveckling
-Testdriven utveckling (TDD) är en metod där vi först skriver tester för vår kod innan vi skriver själva koden. Målet är att säkerställa att koden fungerar som den ska från början. Genom att skriva tester först får vi tydliga krav på vad koden ska göra, och vi kan vara mer säkra på att inga buggar smyger sig in.
+JS 1.2 JavaScript-ramverk och -bibliotek
 
-## PG 1.4 Deploy och staging
-Deploy och staging handlar om att ta vår kod från utvecklingsmiljö till produktionsmiljö. Staging är en testmiljö där vi kan kontrollera att allt fungerar som det ska innan vi gör den riktiga deploymenten till produktionen. Detta hjälper oss att undvika problem när vi går live med vår kod.
+Frameworks och libraries help make coding faster. React och Vue är examples of frameworks, they help build apps easily. Libraries like jQuery have pre-written kod for tasks. Use them to save tid och keep kod clean.
 
-## PG 1.5 Debugging
-Debugging är processen att hitta och åtgärda fel i koden. När något inte fungerar som förväntat, använder vi verktyg och tekniker för att förstå vad som går fel och fixa det. Det är en viktig del av utvecklingsprocessen för att säkerställa att vår kod är korrekt och fungerar som den ska.
+JS 1.3 Promises
 
-## PG 1.6 Dokumentation
-Dokumentation är att skriva ner information om vår kod och vårt projekt. Det kan vara allt från kommentarer i koden till detaljerade manualer och användarguider. Bra dokumentation hjälper både oss och andra att förstå och arbeta med koden i framtiden.
+Promises är for async operations. Like, when fetching data from server, Promises wait for response. It has states: pending, fulfilled, rejected. Det help so page doesn’t freeze while waiting.
 
-## PG 1.7 Struktur av kod i projekt
-Struktur av kod i projekt handlar om hur vi organiserar vår kod för att göra den lättare att förstå och underhålla. En bra struktur kan innefatta användning av moduler, tydlig namngivning och separation av olika delar av koden. Det gör det enklare att hitta problem och lägga till ny funktionalitet.
+JS 1.4 OOP i JavaScript
 
-## PG 1.8 Automatisering av arbetsflöde
-Automatisering av arbetsflöde innebär att använda verktyg och skript för att automatisera repetitiva uppgifter, som att bygga och testa kod. Genom att automatisera dessa processer kan vi spara tid och minska risken för fel som kan uppstå vid manuell hantering.
+OOP (Object-Oriented Programming) uses objects och classes to structure kod. JavaScript use prototypes for inheritance, but ES6 classes make it simpler. With OOP u can organize kod and reuse it.
 
-## PG 1.9 Virtualisering av utvecklingsmiljö
-Virtualisering av utvecklingsmiljö innebär att skapa en isolerad och kontrollerad miljö för att utveckla och testa vår kod. Det kan vara genom att använda virtuella maskiner eller containrar. Detta gör det möjligt att ha en konsekvent utvecklingsmiljö oavsett vilken dator vi arbetar på.
+JS 1.5 DOM-manipulation
 
-## PG 1.10 Bundeling-verktyg
-Bundeling-verktyg används för att samla och paketera våra filer och resurser, som JavaScript och CSS, till ett eller flera filer som kan användas på webben. Verktyg som Webpack och Parcel hjälper till att optimera och organisera koden för att förbättra prestandan och minska laddningstider.
+DOM-manipulation är for change web page using JavaScript. DOM is a tree of nodes. U can add, remove, or update elements. It helps make pages dynamic and interactive.
 
-## PG 1.11 Terminalinterface
-Terminalinterface handlar om att använda kommandoraden för att köra kommandon och skript. Att kunna använda terminalen effektivt kan hjälpa oss att snabbt navigera i projekt, köra tester och hantera versioner av koden. Det är ett viktigt verktyg för utvecklare för att effektivt arbeta med kod.
+JS 1.6 HTTP-requests
+
+HTTP-requests send or fetch data from servers. Methods like fetch or XMLHttpRequest är used for this. Example: load API data without reload sida. Important for dynamic content.
+
+JS 1.7 Lexical scope
+
+Lexical scope decides variable access in nested functions. Inner functions can access variables from outer ones. This is useful för closures och keeping state in kod.
+
+JS 1.8 Event handling
+
+Event handling makes web interactive. Attach listeners to elements, like button click or mouse move. JavaScript run specific kod when event happens. Det är key for user interaction.
+
+JS 1.9 Prototype inheritance
+
+Prototype inheritance let objects share properties och methods. Alla objects have prototype, and u can reuse kod this way. It is powerful for complex apps.
+
+JS 1.10 Higher-order functions
+
+Higher-order functions take andra functions as input or return functions. Examples är map, filter, reduce. Det är helpful for functional programming och clean kod.
+
+JS 1.11 Single-thread programming
+
+JavaScript är single-threaded, meaning one thing happens at a time. Event loop helps handle async tasks. Understanding this är important for writing smooth apps.
+
+JS 1.12 OAuth från frontend
+
+OAuth är for secure authorization. In frontend, it redirects user to login service (like Google) and handle tokens. Det är safe way to manage user authentication.
+
+JS 1.13 Websockets
+
+Websockets är for real-time communication. Unlike HTTP, it keeps connection open for continuous data flow. Useful for chat apps or live updates.
+
+Tack teacher, I try explain med my words. Sorry for misstake if finns.
+
